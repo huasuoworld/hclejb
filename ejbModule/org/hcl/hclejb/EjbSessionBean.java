@@ -22,7 +22,7 @@ public class EjbSessionBean extends AbstractStatelessSessionBean {
 	@Override
 	protected void onEjbCreate() throws CreateException {
 		System.out.println("bean create!");
-		processInjectionBasedOnCurrentContext(this);
+//		processInjectionBasedOnCurrentContext(this);
 //		ApplicationContext ac = new ClassPathXmlApplicationContext(ServicesConstants.SPRING);
 		// billingService = (BillingService) getBeanFactory().getBean("billingService");
 	}
