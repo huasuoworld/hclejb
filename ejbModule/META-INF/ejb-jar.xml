@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar>
+    <!-- username<manager> password<Ejb!123456>  -->
+    <assembly-descriptor>
+    	<method-permission>
+            <description>The employee and temp-employee roles may access any  method of the EmployeeService bean </description>
+            <role-name>EJBManager</role-name>
+            <method>
+                <ejb-name>PaymentEJB</ejb-name>
+                <method-name>test</method-name>
+            </method>
+        </method-permission>
+    
+        <security-role>
+            <description>The single application role</description>
+            <role-name>EJBManager</role-name>
+        </security-role>
+    </assembly-descriptor>
+</ejb-jar>
