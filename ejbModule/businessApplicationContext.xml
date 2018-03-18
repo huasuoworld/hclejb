@@ -8,8 +8,6 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     
 <!--     <context:annotation-config/> -->
-	<context:component-scan base-package="org.hcl.hclejb">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-	</context:component-scan>
-<!-- 	<bean id="billingService" class="org.hcl.hclejb.BillingServiceImpl" /> -->
+	<context:component-scan base-package="org.hcl.hclejb" />
+	<bean id="billingService" class="org.hcl.hclejb.BillingServiceImpl" />
 </beans>

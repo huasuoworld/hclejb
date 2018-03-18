@@ -7,13 +7,13 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="ejbModule/META-INF/spring-2.5.6.SEC03.jar" sourcepath="C:/Users/ADMINI~1/AppData/Local/Temp/.org.sf.feeling.decompiler1521344132191/source/spring-2.5.6.SEC03-sources.jar"/>
-	<classpathentry kind="lib" path="ejbModule/META-INF/jbossws-api-1.0.3.Final.jar" sourcepath="C:/Users/ADMINI~1/AppData/Local/Temp/.org.sf.feeling.decompiler1521344132191/source/jbossws-api-1.0.3.Final-sources.jar"/>
-	<classpathentry kind="lib" path="ejbModule/META-INF/jboss-annotations-ejb3-4.2.2.GA.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_75">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="ejbModule/jboss-annotations-ejb3-4.2.2.GA.jar"/>
+	<classpathentry kind="lib" path="ejbModule/jbossws-api-1.0.3.Final.jar"/>
+	<classpathentry kind="lib" path="ejbModule/spring-2.5.6.SEC03.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

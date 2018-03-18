@@ -8,9 +8,10 @@ import javax.jws.WebService;
 import org.jboss.ws.api.annotation.WebContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 
 @Stateless
-@Interceptors(EjbSpringBean.class)
+@Interceptors(SpringBeanAutowiringInterceptor.class)
 @WebService(targetNamespace="http://org.hcl")
 @WebContext(contextRoot="webservices",authMethod="BASIC")
 @Remote(IPayment.class)
@@ -26,7 +27,7 @@ public class PaymentEJB extends EjbSessionBean implements IPayment {
 
 	@Override
 	public String test() {
-		billingService = this.getEjb(BillingService.class);
+//		billingService = this.getEjb(BillingService.class);
 		String str = billingService.test();
 		System.out.println(str);
 		return str;
