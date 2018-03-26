@@ -27,7 +27,7 @@ public class PaymentEJB extends EjbSessionBean implements IPayment {
 
 	@Override
 	public String test() {
-		billingService = this.getEjb(BillingService.class);
+//		billingService = this.getEjb(BillingService.class);
 		String str = billingService.test();
 		System.out.println(str);
 		return str;

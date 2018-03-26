@@ -3,8 +3,10 @@ package org.hcl.hclejb;
 import javax.ejb.CreateException;
 import javax.ejb.SessionContext;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+//import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.access.ContextSingletonBeanFactoryLocator;
 import org.springframework.ejb.support.AbstractStatelessSessionBean;
 import org.springframework.util.Assert;
@@ -22,7 +24,7 @@ public class EjbSessionBean extends AbstractStatelessSessionBean {
 	@Override
 	protected void onEjbCreate() throws CreateException {
 		System.out.println("bean create!");
-//		processInjectionBasedOnCurrentContext(this);
+		processInjectionBasedOnCurrentContext(this);
 //		ApplicationContext ac = new ClassPathXmlApplicationContext(ServicesConstants.SPRING);
 		// billingService = (BillingService) getBeanFactory().getBean("billingService");
 	}
@@ -38,12 +40,16 @@ public class EjbSessionBean extends AbstractStatelessSessionBean {
 	
 	public void processInjectionBasedOnCurrentContext(Object target) {  
         Assert.notNull(target, "Target object must not be null");  
-        WebApplicationContext cc = ContextLoader.getCurrentWebApplicationContext();  
-        if (cc != null) {  
+//        WebApplicationContext cc = ContextLoader.getCurrentWebApplicationContext(); 
+        BeanFactory beanFactory = this.getBeanFactory();
+        if(beanFactory instanceof ApplicationContext) {
+        	beanFactory = ((ApplicationContext) beanFactory).getAutowireCapableBeanFactory();
+        }
+        if (beanFactory != null) {  
             AutowiredAnnotationBeanPostProcessor bpp = new AutowiredAnnotationBeanPostProcessor();  
 //            ConfigurableListableBeanFactory factory = (ConfigurableListableBeanFactory) this.getBeanFactory();
 //            ConfigurableListableBeanFactory factory = cc.getAutowireCapableBeanFactory();
-            bpp.setBeanFactory(cc.getAutowireCapableBeanFactory());  
+            bpp.setBeanFactory(beanFactory);  
             bpp.processInjection(target);  
         }  
         else {  
